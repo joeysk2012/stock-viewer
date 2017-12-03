@@ -1,0 +1,33 @@
+<h1>Current Stocks in the S&P 500</h1>
+<%= button_to "Update Table", stock_path(@stock), method: :update,:class => 'btn btn-primary' %>
+
+<table class="table">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Symbol</th>
+    <th scope="col">Sector</th>
+    <th scope="col">Price</th>
+    <th scope="col">Yearly Low</th>
+    <th scope="col">Percent of Yearly Low</th>
+    <th scope="col">More Info</th>
+  </tr>
+</thead>
+<tbody>
+
+
+<% @stock.each_with_index do |stock,i| %>
+    <tr>
+      <th scope="row"><%=i+1%></th>
+      <td><%= stock.symbol %></td>
+      <td><%= stock.sector %></td>
+      <td><%= stock.current_price %></td>
+      <td><%= stock.year_low %></td>
+      <td><%=  ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %></td>
+      <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
+    </tr>
+<% end %>
+</tbody>
+</div>
+
+</table>

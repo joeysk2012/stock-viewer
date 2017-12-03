@@ -1,0 +1,37 @@
+
+<div class = "container">
+<h1>Lookup a Stock symbol</h1>  
+<form class="form-inline" id="search-form">
+<div class="form-group">
+  <label for="search-field" class="sr-only">Lookup Stock</label>
+  <input type="text" class="form-control-plaintext" id="search-field" placeholder="Example: SPX, MSFT">
+</div>
+<button id ="get-symbol" type="submit" class="btn btn-primary">Find</button>
+</form>
+<h4>Symbol:</h4>
+<p id="display-tracker"></p>
+<h4>Current Price:</h4>
+<p id ="display-price"></p>
+</div>
+<div class = "container">
+<h1>Buy Stocks</h1>
+<%= form_for :table, url: table_index_path(@table) do |f| %>
+    <p>
+        <%= f.label :shares %><br>
+        <%= f.text_field(:shares, {:class => 'form-control'}) %>
+    </p>
+    <p>
+        <%= f.label :symbol %><br>
+        <%= f.text_field(:symbol, readonly: true, class: 'form-control', id: 'symbol-text') %>
+    </p>
+    <p>
+        <%= f.label :buy_price %><br>
+        <%= f.text_field(:buy_price, readonly: true, class: 'form-control', id: 'buy-price') %>
+    </p>
+        <%= f.hidden_field(:current_price, id: 'current-price') %>
+    <p>
+        <%= f.submit({:class => 'btn btn-primary', :id => "get-symbol", :type => "submit"}) %>
+    </p>
+
+<% end %>
+</div>

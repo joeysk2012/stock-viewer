@@ -1,0 +1,43 @@
+<h1>Stock Trading Simulation</h1>
+
+<div class = "container">
+<h2 id="chart-title"></h2>
+<div id="chart1"></div>
+<h1>Buy a stock</h1>
+<%= link_to "Buy Stock", new_table_path(@table), :class => 'btn btn-primary' %>
+<h1>All stock</h1>
+<%= link_to "See all Stocks", stock_index_path(@stock), :class => 'btn btn-primary' %>
+
+<h1>Current Statement</h1>
+<table class="table">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Symbol</th>
+    <th scope="col">Shares</th>
+    <th scope="col">Current Price</th>
+    <th scope="col">Bought @</th>
+    <th scope="col">Current Value</th>
+    <th scope="col">Current Profit</th>
+    <th scope="col">More Info</th>
+    <th scope="col">Delete</th>
+  </tr>
+</thead>
+<tbody>
+<% @table.each.with_index do |table,i| %>
+    <tr>
+      <th scope="row"><%=i+1%></th>
+      <td><%= table.symbol %></td>
+      <td><%= table.shares %></td>
+      <td><%= table.current_price %></td>
+      <td><%= table.buy_price %></td>
+      <td><%= table.shares.to_i * table.current_price.to_i %></td>
+      <td><%= table.shares.to_i * (table.current_price.to_i-table.buy_price.to_i) %></td>
+      <td><%= link_to "Read More", table_path(table), :class => 'btn btn-defualt' %></td>
+      <td><%= button_to("Delete", table_path(table), method: :delete)%></td>
+    </tr>
+<% end %>
+</tbody>
+</div>
+
+</table>
