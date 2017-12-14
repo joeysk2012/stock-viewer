@@ -1,32 +1,42 @@
 require './app/assets/logic/updateStatement'
+require 'net/http'
+require 'json'
+
+require 'net/http'
+require 'json'
 
 def getLowUpdate(symbol)
-    p symbol
     begin
     if symbol == "" || nil
-        return
+        return 0
     end
-    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol='+ symbol +'&apikey=demo'
+    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=' + symbol + '&apikey=QWDLNLRUB7CZV7TO'
     uri = URI(url)
     response = Net::HTTP.get(uri)
     json = JSON.parse(response)
-    yearly_low =  json["Monthly Time Series"][0]["3. low"].to_f
-    (0..12).each do |i|
-        current_low = json["Monthly Time Series"][i]["3. low"].to_f
-        if current_low < yearly_low
-            current_low = yearly_low
-        end
-    end    
+     current_low =  json["Monthly Time Series"].first.last["3. low"]
+    min = current_low.to_f
     rescue 
-        return
+        return 0
     end
-    return 
+        i = 0
+        json["Monthly Time Series"].each do |key, value|
+            return min if i == 12
+            low = value["3. low"].to_f
+                if(low < min)
+                    min = low
+                end
+            i += 1
+        end
+    
+    return min
 end
 
 
 def updateAllStocks(hash)
     hash.each do |key,val|
-        hash.update(key.id, current_price: getUpdate(key.symbol)[0])
-        hash.update(key.id, year_low: getLowUpdate(key.symbol)[1])
+        hash.update(key.id, current_price: getUpdate(key.symbol))
+        hash.update(key.id, year_low: getLowUpdate(key.symbol))
+    end
 end
 

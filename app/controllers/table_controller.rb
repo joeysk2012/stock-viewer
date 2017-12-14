@@ -1,10 +1,14 @@
 require 'net/http'
 require 'json'
- 
+require './app/assets/logic/updateStatement'
+
+
 class TableController < ApplicationController  
+    before_action :authenticate_user!, except: [:index,:show]
 
     def index
         @table = Table.all
+        updateCurrentPrice(@table)
         
     end
 
@@ -14,12 +18,12 @@ class TableController < ApplicationController
 
 
     def new 
-        @table = Table.new
+        @table = current_user.table.build
         
     end
 
     def create
-        @table = Table.new(table_params)
+        @table = current_user.table.build(table_params)
         if(@table.save)
             redirect_to home_path(@table)
             else

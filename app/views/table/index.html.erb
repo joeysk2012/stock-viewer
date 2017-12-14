@@ -8,7 +8,15 @@
 <h1>All stock</h1>
 <%= link_to "See all Stocks", stock_index_path(@stock), :class => 'btn btn-primary' %>
 
+
+
+
 <h1>Current Statement</h1>
+<% if !user_signed_in? %>
+<%= link_to "Don't have an account? Sign up!", new_user_registration_path, :class => 'btn btn-primary' %>
+<% end %>
+<% if user_signed_in? %>
+
 <table class="table">
 <thead>
   <tr>
@@ -24,20 +32,49 @@
   </tr>
 </thead>
 <tbody>
+<%total_at_buy = 0%>
+<%total_curr_value = 0%>
+<%total_profit = 0%>
 <% @table.each.with_index do |table,i| %>
+  <% if table.user_id == current_user.id %>
     <tr>
       <th scope="row"><%=i+1%></th>
       <td><%= table.symbol %></td>
       <td><%= table.shares %></td>
-      <td><%= table.current_price %></td>
-      <td><%= table.buy_price %></td>
-      <td><%= table.shares.to_i * table.current_price.to_i %></td>
-      <td><%= table.shares.to_i * (table.current_price.to_i-table.buy_price.to_i) %></td>
+      <td><%= number_with_precision(table.current_price, :precision => 2, :delimiter => ',') %></td>
+      <td><%= number_with_precision(table.buy_price, :precision => 2, :delimiter => ',') %></td>
+      <% at_buy = table.shares.to_i * table.buy_price.to_i %>
+      <% total_at_buy += at_buy %>
+      <% curr_value = table.shares.to_i * table.current_price.to_i %>
+      <% total_curr_value += curr_value%>
+      <td><%= number_with_precision(curr_value, :precision => 2, :delimiter => ',') %></td>
+      <% profit = table.shares.to_i * (table.current_price.to_i-table.buy_price.to_i)  %>
+      <% total_profit += profit %>
+      <td><%= number_with_precision(profit, :precision => 2, :delimiter => ',') %></td>
       <td><%= link_to "Read More", table_path(table), :class => 'btn btn-defualt' %></td>
-      <td><%= button_to("Delete", table_path(table), method: :delete)%></td>
+      <td><%= button_to("Remove", table_path(table), method: :delete, :class => 'btn btn-danger')%></td>
     </tr>
-<% end %>
+    <%end%>
+<% end %> 
 </tbody>
-</div>
-
 </table>
+<h1>Summary:</h1>
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th scope="col">Total Stocks Bought</th>
+    <th scope="col">Total Current Value</th>
+    <th scope="col">Total Profit</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><%="$" + number_with_precision(total_at_buy, :precision => 2, :delimiter => ',')%></td>
+    <td><%="$" + number_with_precision(total_curr_value, :precision => 2, :delimiter => ',')%></td>
+    <td><%="$" + number_with_precision(total_profit, :precision => 2, :delimiter => ',')%></td>
+  </tr>
+</tbody>
+</table>
+
+<% end %> 
+</div>

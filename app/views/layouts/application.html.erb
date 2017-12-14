@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'c3.css'  %>
     <%= stylesheet_link_tag 'project.css'  %>
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'  %>
+    
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js' %>
     <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' %>
@@ -28,31 +29,44 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Stock Trading Simulator</a>
+        <%= link_to "Stock Trading Simulator", home_path, class: "navbar-brand" %>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="active"><%= link_to "Home", home_path%></li>
+          <li><%= link_to "About", about_path %></li>
+          <li><a>Contact</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trading Algorithms <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Suggestion Algorithm I</a></li>
-              <li><a href="#">Suggestion Algorithm II</a></li>
-              <li><a href="#">Machine Learning Algorithm</a></li>
+              <li><a href><%= link_to "Suggestion Algorithm I", stock_suggest_buy_low_path %></a></li>
+              <li><a href><%= link_to "Suggestion Algorithm II", suggestion2_path %></a></li>
+              <li><a href><%= link_to "Machine Learning Algorithm ", machine_learning_path %></a></li>
             </ul>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="./">Login <span class="sr-only">(current)</span></a></li>
-          <li><a>Account</a></li>
-          <li><a>Logout</a></li>
+        <% if user_signed_in? %>
+          <li class="active"><a>Current User: <%=current_user.email%> <span class="sr-only">(current)</span></a></li>
+        <% end %>
+          <li><%= link_to "Log In / New User", new_user_session_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
   </nav>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   
-    <%= yield %>
+  <%= yield %>
+
+  <footer class="footer">
+  <div class="container">
+    <span class="font-weight-bold">Stock Market Simulation. Joe Kurokawa 2017</span>
+  </div>
+</footer>
   </body>
+
+
 </html>

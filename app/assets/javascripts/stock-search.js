@@ -1,5 +1,4 @@
-$( document ).ready(function() {
-  console.log("loaded")
+$(document).ready(function() {
   $('#get-symbol').click(function(e) {
     e.preventDefault()
     var symbol = $('#search-field').val()

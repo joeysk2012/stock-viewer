@@ -1,5 +1,6 @@
+<div class = "container">
 <h1>Current Stocks in the S&P 500</h1>
-<%= button_to "Update Table", stock_path(@stock), method: :update,:class => 'btn btn-primary' %>
+<%= button_to "Update Table", stock_renew_all_path, :method => :get, :class => 'btn btn-primary' %>
 
 <table class="table">
 <thead>
@@ -27,7 +28,8 @@
       <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
     </tr>
 <% end %>
+
 </tbody>
 </div>
-
 </table>
+</div>

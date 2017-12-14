@@ -1,4 +1,5 @@
 require './app/assets/logic/updateAllStocks.rb'
+require './app/assets/logic/suggestion1.rb'
 
 class StockController < ApplicationController
     def index
@@ -24,18 +25,31 @@ class StockController < ApplicationController
     end
 
     def edit
-        
+       
     end
 
     def update
-        @stock = Stock.All
-        updateAllStocks(@stock)
+      
     end
 
     def destroy
        @stock = Stock.find(params[:id]).destroy
         redirect_to home_path
+    end
 
+    def renew_all
+        @stock = Stock.all
+        updateAllStocks(@stock)
+        if(@stock.save)
+            redirect_to stock_index_path
+        else
+             redirect_to stock_index_path
+        end
+    end
+
+    def suggest_buy_low
+        @stock = Stock.all
+    
     end
 
     private def stock_params

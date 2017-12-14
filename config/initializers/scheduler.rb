@@ -12,12 +12,11 @@ scheduler.every '5m' do
     minutes += 5 
   end
 
-scheduler.every '30m' do
-    @table = Table.all
-    updateCurrentPrice(@table)
+scheduler.every '15m' do
+    p "test"
 end
 
 scheduler.every '8h' do 
     @stock = Stock.all
-    udateAllStocks(@stock) 
+    updateAllStocks(@stock) 
 end

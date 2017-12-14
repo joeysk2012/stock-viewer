@@ -1,4 +1,4 @@
-
+$( document ).ready(function() {
 var parameter = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=SPX&interval=15min&apikey=QWDLNLRUB7CZV7TO'
 
 fetch(parameter)
@@ -69,3 +69,4 @@ function passDataToGraph1(data){
     });
 }
 
+});
