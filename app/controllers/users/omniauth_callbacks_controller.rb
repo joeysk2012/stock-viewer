@@ -1,4 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  
   def all
     user = User.from_omniauth(request.env["omniauth.auth"])
     if user.persisted?
@@ -15,5 +16,5 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_to home_path
   end
 
-  alias_method :twitter, :all
+  alias_method :facebook, :all
 end
