@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Alert, there is a stock nearing 52 week low, <%= @user.email %></h1>
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">Price</th>
+        <th scope="col">Yearly Low</th>
+        <th scope="col">Percent of Yearly Low</th>
+        
+      </tr>
+    </thead>
+    <h3>IT Stocks to buy</h3>
+    <tbody>
+    <% @stock.each_with_index do |stock,i| %>
+        <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
+        <% if stock.sector == "Information Technology" && percent_low < 10 %>
+          <tr>
+            <th scope="row"><%=i+1%></th>
+            <td><%= stock.symbol %></td>
+            <td><%= stock.current_price %></td>
+            <td><%= stock.year_low %></td>
+            <td><%=  percent_low %></td>
+        
+          </tr>
+        <% end %>
+    <% end %>
+    </tbody>
+  </table>
+  
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price</th>
+      <th scope="col">Yearly Low</th>
+      <th scope="col">Percent of Yearly Low</th>
+      
+    </tr>
+  </thead>
+  <h3>Health Care Stocks to buy</h3>
+  <tbody>
+  <% @stock.each_with_index do |stock,i| %>
+      <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
+      <% if stock.sector == "Health Care" && percent_low < 10 %>
+        <tr>
+          <th scope="row"><%=i+1%></th>
+          <td><%= stock.symbol %></td>
+          <td><%= stock.current_price %></td>
+          <td><%= stock.year_low %></td>
+          <td><%=  percent_low %></td>
+          
+        </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+  </table>
+  
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price</th>
+      <th scope="col">Yearly Low</th>
+      <th scope="col">Percent of Yearly Low</th>
+      
+    </tr>
+  </thead>
+  <h3>Consumer Staples Stocks to buy</h3>
+  <tbody>
+  <% @stock.each_with_index do |stock,i| %>
+      <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
+      <% if stock.sector == "Consumer Staples" && percent_low < 10 %>
+        <tr>
+          <th scope="row"><%=i+1%></th>
+          <td><%= stock.symbol %></td>
+          <td><%= stock.current_price %></td>
+          <td><%= stock.year_low %></td>
+          <td><%=  percent_low %></td>
+        
+        </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+  </table>
+  
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price</th>
+      <th scope="col">Yearly Low</th>
+      <th scope="col">Percent of Yearly Low</th>
+      
+    </tr>
+  </thead>
+  <h3>Consumer Discretionary Stocks to buy</h3>
+  <tbody>
+  <% @stock.each_with_index do |stock,i| %>
+      <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
+      <% if stock.sector == "Consumer Discretionary" && percent_low < 10 %>
+        <tr>
+          <th scope="row"><%=i+1%></th>
+          <td><%= stock.symbol %></td>
+          <td><%= stock.current_price %></td>
+          <td><%= stock.year_low %></td>
+          <td><%=  percent_low %></td>
+          
+        </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+  </table>
+  
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price</th>
+      <th scope="col">Yearly Low</th>
+      <th scope="col">Percent of Yearly Low</th>
+     
+    </tr>
+  </thead>
+  <h3>Utilities Stocks to buy</h3>
+  <tbody>
+  <% @stock.each_with_index do |stock,i| %>
+      <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
+      <% if stock.sector == "Utilities" && percent_low < 10 %>
+        <tr>
+          <th scope="row"><%=i+1%></th>
+          <td><%= stock.symbol %></td>
+          <td><%= stock.current_price %></td>
+          <td><%= stock.year_low %></td>
+          <td><%=  percent_low %></td>
+          
+        </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+  </table>
+  
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price</th>
+      <th scope="col">Yearly Low</th>
+      <th scope="col">Percent of Yearly Low</th>
+      
+    </tr>
+  </thead>
+  <h3>Financial Stocks to buy</h3>
+  <tbody>
+  <% @stock.each_with_index do |stock,i| %>
+      <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
+      <% if stock.sector == "Financials" && percent_low < 10 %>
+        <tr>
+          <th scope="row"><%=i+1%></th>
+          <td><%= stock.symbol %></td>
+          <td><%= stock.current_price %></td>
+          <td><%= stock.year_low %></td>
+          <td><%=  percent_low %></td>
+          
+        </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+  </table>
+  
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price</th>
+      <th scope="col">Yearly Low</th>
+      <th scope="col">Percent of Yearly Low</th>
+      
+    </tr>
+  </thead>
+  <h3>Materials Stocks to buy</h3>
+  <tbody>
+  <% @stock.each_with_index do |stock,i| %>
+      <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
+      <% if stock.sector == "Materials" && percent_low < 10 %>
+        <tr>
+          <th scope="row"><%=i+1%></th>
+          <td><%= stock.symbol %></td>
+          <td><%= stock.current_price %></td>
+          <td><%= stock.year_low %></td>
+          <td><%=  percent_low %></td>
+        
+        </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+  </table>
+    <p>Thank you for subscribing have a nice day</p>
+  </body>
+</html>

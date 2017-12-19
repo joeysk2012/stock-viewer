@@ -40,11 +40,8 @@ class StockController < ApplicationController
     def renew_all
         @stock = Stock.all
         updateAllStocks(@stock)
-        if(@stock.save)
-            redirect_to stock_index_path
-        else
-             redirect_to stock_index_path
-        end
+        redirect_to stock_index_path
+
     end
 
     def suggest_buy_low

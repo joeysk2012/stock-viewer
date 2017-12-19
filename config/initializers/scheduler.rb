@@ -16,6 +16,13 @@ scheduler.every '15m' do
     p "test"
 end
 
+scheduler.every '7d' do
+    @users = User.all
+    @users.each do |user|
+        UserMailer.send_report(user).deliver
+    end
+end
+
 scheduler.every '8h' do 
     @stock = Stock.all
     updateAllStocks(@stock) 
