@@ -17,10 +17,13 @@ development:
   <<: *default
   database: my_database
 
-test:
+test: &test
   <<: *default
   database: my_database
 
 production:
   <<: *default
   database: my_database
+
+cucumber:
+  <<: *test

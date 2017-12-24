@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class TableControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  describe "GET #new" do
+    it "render new template" do
+        get :new
+        assert_response :success
+    end
 end
