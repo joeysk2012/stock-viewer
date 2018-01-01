@@ -28,7 +28,7 @@
     <th scope="col">Current Value</th>
     <th scope="col">Current Profit</th>
     <th scope="col">More Info</th>
-    <th scope="col">Delete</th>
+    <th scope="col">0elete</th>
   </tr>
 </thead>
 <tbody>
@@ -69,9 +69,9 @@
 </thead>
 <tbody>
   <tr>
-    <td><%="$" + number_with_precision(total_at_buy, :precision => 2, :delimiter => ',')%></td>
-    <td><%="$" + number_with_precision(total_curr_value, :precision => 2, :delimiter => ',')%></td>
-    <td><%="$" + number_with_precision(total_profit, :precision => 2, :delimiter => ',')%></td>
+    <td id="stocks_bought"><%="$" + number_with_precision(total_at_buy, :precision => 2, :delimiter => ',')%></td>
+    <td id="current_value"><%="$" + number_with_precision(total_curr_value, :precision => 2, :delimiter => ',')%></td>
+    <td id="total_profit"><%="$" + number_with_precision(total_profit, :precision => 2, :delimiter => ',')%></td>
   </tr>
 </tbody>
 </table>

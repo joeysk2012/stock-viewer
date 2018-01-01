@@ -199,9 +199,9 @@ is considered a good buy. This seems counterintuitive but with good judgment and
       <tr>
         <th scope="row"><%=i+1%></th>
         <td><%= stock.symbol %></td>
-        <td><%= stock.current_price %></td>
-        <td><%= stock.year_low %></td>
-        <td><%=  percent_low %></td>
+        <td id="current_price"><%= stock.current_price %></td>
+        <td id="year_low"><%= stock.year_low %></td>
+        <td id="percent_low"><%=  percent_low %></td>
         <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
       </tr>
     <% end %>

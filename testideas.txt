@@ -1,0 +1,25 @@
+#test ideas
+
+Login/Signup
+YES 1. can you write a test that fakes a login and returns true if it is logged in?
+YES 2. Can you write a test that signs up a user and tests to see if he is in the database and delete itself after checking
+YES 3. write a test that sends an email for lost password.
+
+Table
+YES 4. write a test that logs user in, then adds a stock then test if that stock is in the table.
+YES 5. write a to delete said stock and see if it does not exist in the table. 
+6. write a test can pull stock market data from the Stocks table
+YES7. write a test that matches totals (boutght, profit, earnings) in the view 
+
+Stock
+YES 8. write a test to make sure all values in all stocks (price and yearly low) are non zero and percent is non negative or infity
+YES 9. write a test to make sure there are 508 objects
+
+Suggestion 
+YES 10. make sure percent is non negative and price is not 0
+
+
+Controller/Models
+YESmakes sure all controllers and models are tested
+
+

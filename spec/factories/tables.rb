@@ -10,6 +10,7 @@ FactoryBot.define do
       updated_at "2017-12-16 02:39:50"
       user
     end
+
   end
 
 

@@ -3,20 +3,13 @@ require 'rails_helper'
 RSpec.describe Table, type: :model do
   #Test validations  
   describe 'validations' do
-        it 'require title' do
+        it 'require symbol' do
             table = Table.new(symbol: '')
             table.valid? 
             expect(table.valid?).to be_falsy
         end 
 
-        it 'requires symbol to be unique for one user' do 
-            user = FactoryBot.create(:user)
-            first_table = FactoryBot.create(:table, symbol: 'First Test', user: user)
-            new_table = Table.new(symbol: 'First Test', user: user)
-            expect(new_table.valid?).to be_falsy
-        end
-
-        it 'allows different users to have achievement with identical symbols' do 
+        it 'allows different users to have table rows with identical symbols' do 
             user1 = FactoryBot.create(:user)
             user2 = FactoryBot.create(:user)
             first_table = FactoryBot.create(:table, symbol: 'First Test', user: user1 )
