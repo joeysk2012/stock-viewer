@@ -35,7 +35,7 @@ end
 
 def updateAllStocks(hash)
     hash.each do |key,val|
-        hash.update(key.id, current_price: getUpdate(key.symbol))
+        hash.update(key.id, current_price: getUpdate(key.symbol,key.current_price))
         hash.update(key.id, year_low: getLowUpdate(key.symbol))
     end
 end

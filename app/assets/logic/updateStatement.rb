@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-def getUpdate(symbol)
+def getUpdate(symbol,previous_price)
     begin
     if symbol == "" || nil
         return 0
@@ -32,6 +32,10 @@ def updateCurrentPrice(table)
     hash = Hash.new
     hash = table
     hash.each do |key,val|
-        hash.update(key.id, current_price: getLocalUpdate(key.symbol))
+        if key.shares == 0
+            hash.destroy(key.id)
+        else
+            hash.update(key.id, current_price: getLocalUpdate(key.symbol))
+        end
     end
 end

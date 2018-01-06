@@ -1,8 +1,35 @@
 <h1>Stock Trading Simulation</h1>
 
 <div class = "container">
-<h2 id="chart-title"></h2>
-<div id="chart1"></div>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+  <li><a data-toggle="tab" href="#menu1">Today</a></li>
+  <li><a data-toggle="tab" href="#menu2">Monthly</a></li>
+  <li><a data-toggle="tab" href="#menu2">Yearly</a></li>
+</ul>
+
+<div class="tab-content">
+<div id="home" class="tab-pane fade in active">
+  <h3>HOME</h3>
+  <p>Weclome, you can view your performance of your portfolio over time 
+  or you can buy a stock or sell stocks. But first please Login or sign up 
+  for a new account. </p>
+</div>
+<div id="menu1" class="tab-pane fade">
+  <div id='chart-title1'></div>
+  <div id='chart1'></div>
+</div>
+<div id="menu2" class="tab-pane fade">
+  <div id='chart-title2'></div>
+  <div id='chart2'></div>
+</div>
+<div id="menu3" class="tab-pane fade">
+  <div id='chart-title3'></div>
+  <div id='chart3'></div>
+</div>
+</div>
+
 <h1>Buy a stock</h1>
 <%= link_to "Buy Stock", new_table_path(@table), :class => 'btn btn-primary' %>
 <h1>All stock</h1>
@@ -28,7 +55,8 @@
     <th scope="col">Current Value</th>
     <th scope="col">Current Profit</th>
     <th scope="col">More Info</th>
-    <th scope="col">0elete</th>
+    <th scope="col">Sell</th>
+    <th scope="col">Delete</th>
   </tr>
 </thead>
 <tbody>
@@ -52,6 +80,7 @@
       <% total_profit += profit %>
       <td><%= number_with_precision(profit, :precision => 2, :delimiter => ',') %></td>
       <td><%= link_to "Read More", table_path(table), :class => 'btn btn-defualt' %></td>
+      <td><%= button_to("Sell", edit_table_path(table), method: :get, :class => 'btn btn-success')%></td>
       <td><%= button_to("Remove", table_path(table), method: :delete, :class => 'btn btn-danger')%></td>
     </tr>
     <%end%>
@@ -59,6 +88,8 @@
 </tbody>
 </table>
 <h1>Summary:</h1>
+<h3>Balance:</h3>
+<h3>$<%=current_user.money%></h3>
 <table class="table table-bordered">
 <thead>
   <tr>

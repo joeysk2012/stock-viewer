@@ -1,0 +1,20 @@
+
+<div class = "container">
+<%= form_for :table, url: table_path(@table), method: :put, :html => { :id => "sell_form" } do |f| %>
+    <h2>
+        <%= @table.symbol%>
+    </h2>
+    <p>
+        You currently have:<br>
+        <p id="current_shares"><%= @table.shares.to_i  %> shares</p> 
+    </p>
+    <p>
+        How many shares do you want to sell? <br>
+        <%= f.text_field(:shares, {:class => 'form-control'}) %>
+    </p>
+    <p>
+        <%= f.submit("Sell", {:class => 'btn btn-primary', :id => "sell symbol", :type => "submit"})%>
+    </p>
+
+<% end %>
+</div>

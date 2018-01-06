@@ -2,20 +2,12 @@
 <html>
   <head>
     <title>StockViewer</title>
-    <%= javascript_include_tag 'application' %>    
+    
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'  %>
     <%= stylesheet_link_tag 'c3.css'  %>
     <%= stylesheet_link_tag 'project.css'  %>
-    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'  %>
-    
-    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' %>
-    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js' %>
-    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' %>
-    <%= javascript_include_tag 'graph.js' %>
-    <%= javascript_include_tag 'c3.min.js' %>
-    <%= javascript_include_tag 'stock-search.js' %>
-   
+    <%= javascript_include_tag 'application' %>   
     </head>
 
   <body>
@@ -35,7 +27,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><%= link_to "Home", home_path%></li>
           <li><%= link_to "About", about_path %></li>
-          <li><a>Contact</a></li>
+          <li><%= link_to "Contact", contact_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trading Algorithms <span class="caret"></span></a>
             <ul class="dropdown-menu">
