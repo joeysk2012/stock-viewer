@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#sell_form").submit(function(e){var a=$("#current_shares").html().split(" ")[0],s=$("#table_shares").val();if(s>a)return alert("Cannot sell shares than you have!"),e.preventDefault(),!1;sold=a-s,$("#table_shares").val(sold),$("#table_shares").hide()})});
