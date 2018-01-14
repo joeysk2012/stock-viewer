@@ -41,6 +41,8 @@ gem 'omniauth-facebook'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #gem '', :require => false
+#new relic dashboard
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'byebug'
