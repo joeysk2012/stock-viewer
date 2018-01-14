@@ -66,7 +66,7 @@ Rails.application.configure do
 
   #for the action mailer of devise,In production, :host should be set to the actual host of your application.
   #for deploying to heroku is should be:
-  config.action_mailer.default_url_options = { host: 'stock-suggest.com'}
+  #config.action_mailer.default_url_options = { host: 'stock-suggest.herokuapp.com'}
   #for local testing it should be:
-  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

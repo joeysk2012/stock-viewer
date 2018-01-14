@@ -92,5 +92,16 @@ Rails.application.configure do
   #set this to not local host when in  development
   #config.action_mailer.default_url_options = { :host => "localhost:3000" }
   #sets your action mailer devise to url when deploying to heroku
-  config.action_mailer.default_url_options = {  host: 'stock-suggest.com' }
+  config.action_mailer.default_url_options = {  host: 'stock-suggest.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "gmail.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
+    enable_starttls_auto: true
+  }
 end

@@ -43,5 +43,5 @@ Rails.application.configure do
   #sets your action mailer devise to localhost
   #config.action_mailer.default_url_options = { :host => "localhost:3000" }
   #sets your action mailer devise to url when deploying to heroku
-  config.action_mailer.default_url_options = { :host => "stock-suggest.com" }
+  config.action_mailer.default_url_options = { :host => "stock-suggest.herokuapp.com" }
 end
