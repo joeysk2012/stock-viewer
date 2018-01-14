@@ -21,13 +21,13 @@ is considered a good buy. This seems counterintuitive but with good judgment and
   <tbody>
   <% @stock.each_with_index do |stock,i| %>
       <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
-      <% if stock.sector == "Information Technology" && percent_low < 10 %>
+      <% if stock.sector == "Information Technology" && percent_low < 10 && percent_low > 0  %>
         <tr>
           <th scope="row"><%=i+1%></th>
           <td><%= stock.symbol %></td>
           <td><%= stock.current_price %></td>
           <td><%= stock.year_low %></td>
-          <td><%=  percent_low %></td>
+          <td><%= '%.2f' % percent_low %></td>
           <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
         </tr>
       <% end %>
@@ -50,13 +50,13 @@ is considered a good buy. This seems counterintuitive but with good judgment and
 <tbody>
 <% @stock.each_with_index do |stock,i| %>
     <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
-    <% if stock.sector == "Health Care" && percent_low < 10 %>
+    <% if stock.sector == "Health Care" && percent_low < 10 && percent_low > 0 %>
       <tr>
         <th scope="row"><%=i+1%></th>
         <td><%= stock.symbol %></td>
         <td><%= stock.current_price %></td>
         <td><%= stock.year_low %></td>
-        <td><%=  percent_low %></td>
+        <td><%=  '%.2f' % percent_low %></td>
         <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
       </tr>
     <% end %>
@@ -79,13 +79,13 @@ is considered a good buy. This seems counterintuitive but with good judgment and
 <tbody>
 <% @stock.each_with_index do |stock,i| %>
     <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
-    <% if stock.sector == "Consumer Staples" && percent_low < 10 %>
+    <% if stock.sector == "Consumer Staples" && percent_low < 10 && percent_low > 0 %>
       <tr>
         <th scope="row"><%=i+1%></th>
         <td><%= stock.symbol %></td>
         <td><%= stock.current_price %></td>
         <td><%= stock.year_low %></td>
-        <td><%=  percent_low %></td>
+        <td><%=  '%.2f' % percent_low %></td>
         <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
       </tr>
     <% end %>
@@ -108,13 +108,13 @@ is considered a good buy. This seems counterintuitive but with good judgment and
 <tbody>
 <% @stock.each_with_index do |stock,i| %>
     <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
-    <% if stock.sector == "Consumer Discretionary" && percent_low < 10 %>
+    <% if stock.sector == "Consumer Discretionary" && percent_low < 10 && percent_low > 0 %>
       <tr>
         <th scope="row"><%=i+1%></th>
         <td><%= stock.symbol %></td>
         <td><%= stock.current_price %></td>
         <td><%= stock.year_low %></td>
-        <td><%=  percent_low %></td>
+        <td><%=  '%.2f' % percent_low %></td>
         <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
       </tr>
     <% end %>
@@ -137,13 +137,13 @@ is considered a good buy. This seems counterintuitive but with good judgment and
 <tbody>
 <% @stock.each_with_index do |stock,i| %>
     <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
-    <% if stock.sector == "Utilities" && percent_low < 10 %>
+    <% if stock.sector == "Utilities" && percent_low < 10 && percent_low > 0%>
       <tr>
         <th scope="row"><%=i+1%></th>
         <td><%= stock.symbol %></td>
         <td><%= stock.current_price %></td>
         <td><%= stock.year_low %></td>
-        <td><%=  percent_low %></td>
+        <td><%= '%.2f' % percent_low %></td>
         <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
       </tr>
     <% end %>
@@ -166,13 +166,13 @@ is considered a good buy. This seems counterintuitive but with good judgment and
 <tbody>
 <% @stock.each_with_index do |stock,i| %>
     <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
-    <% if stock.sector == "Financials" && percent_low < 10 %>
+    <% if stock.sector == "Financials" && percent_low < 10 && percent_low > 0 %>
       <tr>
         <th scope="row"><%=i+1%></th>
         <td><%= stock.symbol %></td>
         <td><%= stock.current_price %></td>
         <td><%= stock.year_low %></td>
-        <td><%=  percent_low %></td>
+        <td><%=  '%.2f' % percent_low %></td>
         <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
       </tr>
     <% end %>
@@ -195,13 +195,13 @@ is considered a good buy. This seems counterintuitive but with good judgment and
 <tbody>
 <% @stock.each_with_index do |stock,i| %>
     <% percent_low = ((stock.current_price.to_f/stock.year_low.to_f)-1)*100 %> 
-    <% if stock.sector == "Materials" && percent_low < 10 %>
+    <% if stock.sector == "Materials" && percent_low < 10 && percent_low > 0%>
       <tr>
         <th scope="row"><%=i+1%></th>
         <td><%= stock.symbol %></td>
         <td id="current_price"><%= stock.current_price %></td>
         <td id="year_low"><%= stock.year_low %></td>
-        <td id="percent_low"><%=  percent_low %></td>
+        <td id="percent_low"><%= '%.2f' % percent_low %></td>
         <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
       </tr>
     <% end %>
