@@ -89,6 +89,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  #set this to not local host when in prodcution
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  #set this to not local host when in  development
+  #config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  #sets your action mailer devise to url when deploying to heroku
+  config.action_mailer.default_url_options = {  host: 'stock-suggest.com' }
 end

@@ -41,5 +41,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   #sets your action mailer devise to localhost
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  #config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  #sets your action mailer devise to url when deploying to heroku
+  config.action_mailer.default_url_options = { :host => "stock-suggest.com" }
 end
