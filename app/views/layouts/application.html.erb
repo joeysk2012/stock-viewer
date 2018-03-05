@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
     <title>StockViewer</title>
     
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'  %>
     <%= stylesheet_link_tag 'c3.css'  %>
     <%= stylesheet_link_tag 'project.css'  %>
-    <%= javascript_include_tag 'application' %>   
+    <%= stylesheet_link_tag 'landing-page.css' %>
+    <%= stylesheet_link_tag 'font-awesome.min.css' %>
+    <%= stylesheet_link_tag 'simple-line-icons.css' %>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">    
+    <%= javascript_include_tag 'application' %>
+
+    
+    
     </head>
 
   <body>
@@ -47,17 +59,162 @@
       </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
   </nav>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
   
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Stock Trading Simulator: <br>
+          Please sign up or Login!</h1>
+        </div>
+        <div class="col-md-3-offset-3">
+        <button type="submit" class="btn btn-lg btn-primary" >Sign up!</button>       
+        </div>
+      </div>
+    </div>
+  </header>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
   <%= yield %>
 
-  <footer class="footer">
-  <div class="container">
-    <span class="font-weight-bold">Stock Market Simulation. Joe Kurokawa 2017</span>
-  </div>
-</footer>
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-layers m-auto text-primary"></i>
+            </div>
+            <h3>Fully integrated to Alpha Vantage API</h3>
+            <p class="lead mb-0">Stores stock information from Alpha Vantage to make quick calls!</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-list m-auto text-primary"></i>
+            </div>
+            <h3>Weekly Reports</h3>
+            <p class="lead mb-0">Sends out Weekley reports on what stocks you should buy for maximum gains!</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-check m-auto text-primary"></i>
+            </div>
+            <h3>Easy to Use</h3>
+            <p class="lead mb-0">Trading stocks is easy Create an account and just click buy stock!</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div class="features-icons-icon d-flex">
+            <i class="icon-diamond m-auto text-primary"></i>
+          </div>
+          <h3>Made on top of Ruby on Rails</h3>
+          <p class="lead mb-0">Tools used include PostgreSQL, Rspec, JavaScript, jQuery </p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div class="features-icons-icon d-flex">
+            <i class="icon-social-facebook m-auto text-primary"></i>
+          </div>
+          <h3>Oath to login via Facebook</h3>
+          <p class="lead mb-0">use Oath 2.0 to integrate with your Facebook account!</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+          <div class="features-icons-icon d-flex">
+            <i class="icon-like m-auto text-primary"></i>
+          </div>
+          <h3>No pressure trading</h3>
+          <p class="lead mb-0">This is just fake money don't sweat it if your startegy fails</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="call-to-action text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2018. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="glove"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="social-linkedin"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="social-twitter"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 
 
