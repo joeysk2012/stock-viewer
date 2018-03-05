@@ -13,3 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 #Rails.application.config.assets.precompile += %w(admin.js admin.css graph.js c3.min.js)
 Rails.application.config.assets.precompile = ['*.js', '*.css']
+Rails.application.config.assets.precompile += %w( landing-page.css ) 

@@ -15,7 +15,7 @@ h6 {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background: url("/assets/stock.jpg") no-repeat center center;
+  background: url("stock.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -102,7 +102,7 @@ header.masthead h1 {
 .call-to-action {
   position: relative;
   background-color: #343a40;
-  background: url("/assets/stock.jpg") no-repeat center center;
+  background: url("stock.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
