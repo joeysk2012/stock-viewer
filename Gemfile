@@ -43,6 +43,7 @@ gem 'omniauth-facebook'
 #gem '', :require => false
 #new relic dashboard
 gem 'newrelic_rpm'
+gem 'simple-line-icons-rails'
 
 group :development, :test do
   gem 'byebug'
