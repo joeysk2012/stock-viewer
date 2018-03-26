@@ -12,9 +12,9 @@ scheduler.every '5m' do
     minutes += 5 
   end
 
-scheduler.every '7d' do
-    @users = User.all
-    @users.each do |user|
-        UserMailer.send_report(user).deliver
-    end
-end
+#scheduler.every '7d' do
+#    @users = User.all
+#    @users.each do |user|
+#        UserMailer.send_report(user).deliver
+#    end
+#end

@@ -22,5 +22,7 @@ require 'csv'
     csv_data = CsvParser()
     csv_data[0].each_with_index do |sym, i|
         next if i == 0
-        Stock.create(symbol:csv_data[0][i], sector:csv_data[1][i], current_price: 10 , year_low: 10)
+        Stock.create(symbol:csv_data[0][i], sector:csv_data[1][i], current_price: rand(999) , year_low: rand(999))
     end
+
+    #User.create(id: 1, email: "test@gmail.com", created_at: "2017-12-16 19:19:52", updated_at: "2017-12-16 19:19:52", provider: nil, uid: nil, oauth_token: nil, oauth_expires_at: nil, money: 0.1e6)

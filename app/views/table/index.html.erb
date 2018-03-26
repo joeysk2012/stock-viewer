@@ -39,7 +39,7 @@
 
 <h1>Current Statement</h1>
 <% if !user_signed_in? %>
-<%= link_to "Don't have an account? Sign up!", new_user_registration_path, :class => 'btn btn-primary' %>
+<%= link_to "Don't have an account? Sign up!", new_user_registration_path, :class => 'btn btn-primary', :style=> 'position: relative;'  %>
 <% end %>
 <% if user_signed_in? %>
 

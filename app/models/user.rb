@@ -15,7 +15,7 @@ class User < ApplicationRecord
       user.save!
     end
   end
-  after_create :welcome_email
+  #after_create :welcome_email
 
   def welcome_email
     UserMailer.welcome_email(self).deliver
