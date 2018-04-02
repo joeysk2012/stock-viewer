@@ -17,7 +17,7 @@ def getLowUpdate(symbol)
      current_low =  json["Monthly Time Series"].first.last["3. low"]
     min = current_low.to_f
     rescue 
-        return 0
+        return 99
     end
         i = 0
         json["Monthly Time Series"].each do |key, value|

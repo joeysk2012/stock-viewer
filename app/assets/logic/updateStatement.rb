@@ -14,7 +14,7 @@ def getUpdate(symbol,previous_price)
     current_price = json["Time Series (15min)"].first.last["1. open"]
     return current_price
     rescue 
-        return 0
+        return 99
     end
 end
 
