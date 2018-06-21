@@ -44,6 +44,7 @@ gem 'omniauth-facebook'
 #new relic dashboard
 gem 'newrelic_rpm'
 gem 'simple-line-icons-rails'
+gem 'typhoeus'
 
 group :development, :test do
   gem 'byebug'
