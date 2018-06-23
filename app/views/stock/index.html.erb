@@ -11,6 +11,7 @@
     <th scope="col">Price</th>
     <th scope="col">Yearly Low</th>
     <th scope="col">Percent of Yearly Low</th>
+    <th scope="col">Last Updated</th>
     <th scope="col">More Info</th>
   </tr>
 </thead>
@@ -22,9 +23,10 @@
       <th scope="row"><%=i+1%></th>
       <td id="symbol"><%= stock.symbol %></td>
       <td id="sector"><%= stock.sector %></td>
-      <td id="current_price"><%= '%.2f' % stock.current_price %></td>
-      <td id="year_low"><%= '%.2f' % stock.year_low %></td>
-      <td id="percent_low"><%=  '%.2f' % [((stock.current_price/stock.year_low)-1)*100] %></td>
+      <td id="current_price"><%= stock.current_price == nil ? nil : '%.2f' % stock.current_price %></td>
+      <td id="year_low"><%= stock.year_low == nil ? nil : '%.2f' % stock.year_low %></td>
+      <td id="percent_low"><%= stock.current_price == nil || stock.year_low == nil ? nil : '%.2f' % [((stock.current_price/stock.year_low)-1)*100] %></td>
+      <td id="sector"><%= stock.updated_at %></td>
       <td><%= link_to "Read More", stock_path(stock), :class => 'btn btn-defualt' %></td>
     </tr>
 <% end %>

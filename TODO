@@ -1,8 +1,5 @@
 TODO List:
 
-YES 1. implement Money for user. start with a $100,000 which increases as you sell and decreases as you buy stock.
-YES 2. implement selling for the table. that increases the amount of money you have.
-4. be able to pull up more info as you click on your table/stock news articles
-5. make data visualization better, Look at your scottrade account to see how to implement it. this visualization should be about how your porfolio is doing over time. 
-6. read about machine learning and trading and write a blurb about it. 
-7. expand on your suggest algo. I
+1.  update stock list with prices
+2. Make a scheduler work
+3. be able to pull up more info as you click on your table/stock news articles
