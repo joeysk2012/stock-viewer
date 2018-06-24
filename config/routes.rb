@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'table#index', as: 'home' #go to table controller and get index view
   get 'stock/renew_all', to: 'stock#renew_all', via: :get
   get 'stock/suggest_buy_low', to: 'stock#suggest_buy_low', via: :get
+  get 'stock/news', to: 'stock#news', via: :get
   get'about', to: 'pages#about', as: 'about'
   get'contact', to: 'pages#contact', as: 'contact'
   get'suggestion1', to: 'pages#suggestion1', as: 'suggestion1'

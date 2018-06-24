@@ -1,5 +1,6 @@
 require './app/assets/logic/updateAllStocks.rb'
 require './app/assets/logic/suggestion1.rb'
+require './app/assets/logic/getNews.rb'
 
 class StockController < ApplicationController
     def index
@@ -49,8 +50,14 @@ class StockController < ApplicationController
     
     end
 
+    def news
+        p params[:id]
+        @stock = Stock.find(params[:id])
+        redirect_to 'https://quotes.wsj.com/' + @stock.symbol
+    end
+
     private def stock_params
-        params.require(:stock).permit(:symbol, :sector, :current_price, :year_low)
+        params.require(:stock).permit(:id, :symbol, :sector, :current_price, :year_low)
     end
 
 

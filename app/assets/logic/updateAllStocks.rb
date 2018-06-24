@@ -26,7 +26,7 @@ def getUpdate(json)
 end
 
 def updateAllStocks(hash)
-    index = 0
+    index = 1
     loop_control = true
 
     while loop_control
@@ -37,8 +37,7 @@ def updateAllStocks(hash)
         first_index = index 
         (first_index..last_index).each do |i|
             break if index == hash.length
-            p hash #how do i access active records??
-            current_sym = hash.values[i].symbol
+            current_sym = hash.find(i).symbol
             requests_array << Typhoeus::Request.new('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=' + current_sym + '&interval=15min&apikey=QWDLNLRUB7CZV7TO', method: :get, headers: {Accept: "application/json"})
             requests_array << Typhoeus::Request.new('https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=' + current_sym + '&apikey=QWDLNLRUB7CZV7TO', method: :get, headers: {Accept: "application/json"})
             index += 1
@@ -82,6 +81,6 @@ def updateAllStocks(hash)
                 break if key.id-1 == index
         end
         p "sleeping..."
-        index == hash.length ?  loop_control == false : sleep(60)
+        index == hash.length ?  loop_control = false : sleep(60)
     end
 end

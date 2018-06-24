@@ -1,4 +1,18 @@
 <div class="container">
-    <h2><%= @stock.symbol %></h2>
-    <p><%= @stock.current_price %></p>
+    <table>
+        <thead>
+           <tr>
+            <th> Symbol </th>
+            <th> Price </th>
+            <th> News </th>
+           </tr> 
+        </thead>
+        <tbody>
+        <tr>
+            <td><%= @stock.symbol %></td>
+            <td><%= @stock.current_price %></td>
+            <td><%= link_to "Go to News", 'https://quotes.wsj.com/' + @stock.symbol , :class => 'btn btn-defualt' %></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
